@@ -1,0 +1,140 @@
+<div class="page-header">
+    <h3> <a ui-sref="inicio">Movimientos contables</a> \ Nuevo </h3>
+
+</div>
+
+<div class="container">
+
+<form class="form-horizontal">
+
+    <div class="container">
+    <div class="form-group">
+        <label class="col-md-1" for="inputFecha">Fecha</label>
+        <div class="col-md-2">
+            <input class="form-control" Id="inputFecha" name="inputFecha" type="text" />
+        </div>
+    </div>
+
+    <div class="form-group">
+         <label class="col-md-1" for="selectTipo" >Tipo</label>
+        <div class="col-md-2">
+            <select Id="selectTipo"class="form-control">
+                <option value="1">Diario</option>
+                <option value="2">Factura</option>
+                <option value="3">Cheque</option>
+            </select>
+
+        </div>
+
+    </div>
+
+
+    <div class="form-group">
+        <label class="col-md-1" for="selectMoneda" >Moneda</label>
+        <div class="col-md-2">
+            <select Id="selectMoneda"class="form-control">
+                <option value="1">Pesos</option>
+                <option value="2">Dolar</option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-1" for="inputTasa">Tasa</label>
+        <div class="col-md-2">
+            <input class="form-control" Id="inputTasa" name="inputTasa" type="text" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-1" for="inputTasa">Concepto</label>
+        <div class="col-md-4">
+            <textarea class="form-control" Id="inputConcepto" name="inputConcepto" />
+        </div>
+    </div>
+    </div>
+
+<div class="container">
+    <table Id="tbAsiento" class="table table-striped">
+        <col style="width:50%">
+        <col style="width:20%">
+        <col style="width:20%">
+        <col style="Width:10%">
+
+        <thead>
+        <tr>
+            <th>Cuenta Contable</th>
+            <th>Débito</th>
+            <th>Crédito</th>
+            <th></th>
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+        <tr>
+            <td><input class="form-control" Id="inputCuenta" name="inputCuenta" type="text" /></td>
+            <td><input class="form-control" Id="inputDebito" name="inputDebito" type="text" /></td>
+            <td><input class="form-control" Id="inputCredito" name="inputCredito" type="text" /></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><input class="form-control" Id="inputCuenta" name="inputCuenta" type="text" /></td>
+            <td><input class="form-control" Id="inputDebito" name="inputDebito" type="text" /></td>
+            <td><input class="form-control" Id="inputCredito" name="inputCredito" type="text" /></td>
+            <td>
+
+                <button class="btn btn-primary btn-sm" onclick="AddRow()"><span class="glyphicon glyphicon-plus"></span></button>
+
+            </td>
+
+         </tr>
+
+
+
+        </tbody>
+
+
+    </table>
+
+</div>
+
+    <div class="container">
+
+        <button class="btn btn-primary btn-sm" type="submit"><span class="glyphicon glyphicon-plus">Guardar</span></button>
+
+        <a class="btn btn-danger btn-sm glyphicon glyphicon-remove" ui-sref="inicio">Cancelar</a>
+
+
+    </div>
+
+
+</form>
+
+</div>
+
+<script type="text/javascript">
+
+    function AddRow(){
+        $('#tbAsiento tr:last').after('<tr><td><input class="form-control" Id="inputCuenta" name="inputCuenta" type="text" /></td>' +
+                '<td><input class="form-control" Id="inputDebito" name="inputDebito" type="text" /></td>' +
+                '<td><input class="form-control" Id="inputCredito" name="inputCredito" type="text" /></td>'
+    +'<td><button class="btn btn-primary btn-sm" onclick="AddRow()"><span class="glyphicon glyphicon-plus"></span></button> <button class="btn btn-danger btn-sm" Id="btnDelete"><span class="glyphicon glyphicon-minus"></span></button></td></tr>'
+
+        )
+    };
+
+    $("#tbAsiento").on('click','#btnDelete',function(){
+        $(this).closest('tr').remove();
+
+    });
+
+
+
+
+</script>
+

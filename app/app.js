@@ -14,8 +14,17 @@
              $stateProvider
                  .state("inicio",{
                      url:"/",
-                     templateUrl:"app/Sigin.html"
+                     templateUrl:"app/movimientos contables/movimientoscontables.html"
                  })
+
+                 .state("MCEdit",{
+                 url:"/MC/Nuevo",
+                     templateUrl:"app/movimientos contables/movimientoscontablesEdit.html"
+             })
+
+
+
+
 
         }])
 
