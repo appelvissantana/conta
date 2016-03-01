@@ -14,13 +14,23 @@
              $stateProvider
                  .state("inicio",{
                      url:"/",
+                     templateUrl:"app/empresas/empresas.html"
+                 })
+
+                 .state("MCLista",{
+                     url:"/MC/Lista",
                      templateUrl:"app/movimientos contables/movimientoscontables.html"
                  })
 
                  .state("MCEdit",{
                  url:"/MC/Nuevo",
                      templateUrl:"app/movimientos contables/movimientoscontablesEdit.html"
-             })
+                })
+
+                 .state("menu", {
+                     url:"/Menu",
+                     templateUrl: "app/Menu.html"
+                 })
 
 
 
