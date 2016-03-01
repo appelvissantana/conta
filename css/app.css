@@ -4,20 +4,24 @@
 
 }
 
-#ulEmpresas{
-    border: 1px solid blue;
-    height: 150px;
-
-}
-
 #ulEmpresas li{
     text-align: center;
-    border: 1px solid red;
-    display: inline-block;
+    border: 1px solid #d5d5d5;
+    background-color:#f9f2f4;
+    display: inline-table;
     margin-right: 15px;
+    padding: 1px;
     width: 150px;
     height:150px;
+}
 
-
-
+#ulMenu li{
+    text-align: center;
+    border: 1px solid #d5d5d5;
+    background-color:#f9f2f4;
+    display: inline-table;
+    margin-right: 15px;
+    padding: 1px;
+    width: 150px;
+    height:150px;
 }

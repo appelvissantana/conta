@@ -14,7 +14,19 @@
              $stateProvider
                  .state("inicio",{
                      url:"/",
-                     templateUrl:"app/empresas/empresas.html"
+                     templateUrl:"app/empresas/empresas.html",
+                     controller:"empresasCtrl as vm"
+
+                 })
+
+                 .state("menu", {
+                     url:"/Menu/:EmpresaId",
+                     templateUrl: "app/Menu.html"
+                 })
+
+                 .state("catalogo",{
+                     url:"/Catalogo/:EmpresaId",
+                     templateUrl:"app/catalogo cuentas/catalogocuentas.html"
                  })
 
                  .state("MCLista",{
@@ -27,10 +39,18 @@
                      templateUrl:"app/movimientos contables/movimientoscontablesEdit.html"
                 })
 
-                 .state("menu", {
-                     url:"/Menu",
-                     templateUrl: "app/Menu.html"
+                 .state("reportes",{
+                     url:"/Reportes/:EmpresaId",
+                     templateUrl:"app/reportes/reportes.html"
                  })
+
+                 .state("config", {
+                     url:"/Config/:EmpresaId",
+                     templateUrl:"app/configuracion/configuracion.html"
+
+                 })
+
+
 
 
 

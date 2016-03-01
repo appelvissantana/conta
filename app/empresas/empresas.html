@@ -1,25 +1,23 @@
+
+<div class="page-header">
+    <h3> Inicio </h3>
+</div>
+
+
 <div class="container">
 
-    <ul Id="ulEmpresas" >
-        <li>
+    <ul Id="ulEmpresas"  >
+        <li ng-repeat="empresas in vm.empresas">
             <a ui-sref="menu">
                 <h1><span class="glyphicon glyphicon-queen"></span></h1>
-                Universidad Central del Este
+                {{empresas.Nombre}}
             </a>
         </li>
 
         <li>
-
-            <a ui-sref="menu">
-                <h1><span class="glyphicon glyphicon-star"></span></h1>
-                Centro Medico UCE
-            </a>
-
+            <h1><span class="glyphicon glyphicon-plus"></span></h1>
+            Crear Nueva
         </li>
 
     </ul>
-
-
-
-
 </div>
