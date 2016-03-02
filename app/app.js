@@ -19,6 +19,11 @@
 
                  })
 
+                 .state("empresaNueva",{
+                     url:"/empresa/nueva",
+                     templateUrl:"app/empresas/empresasEdit.html"
+                 })
+
                  .state("menu", {
                      url:"/Menu/:EmpresaId",
                      templateUrl: "app/Menu.html"
