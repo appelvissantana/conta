@@ -5,30 +5,31 @@
 (function(){
 
         "use strict";
-        var app = angular.module("conta",["ui.router"]);
+        var app = angular.module("conta",["ui.router", "ngAnimate", "satellizer" ]);
 
-        app.config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $urlRouterProvider)
+        app.config(["$stateProvider", "$urlRouterProvider","$httpProvider", "$authProvider", "API_URL", function ($stateProvider, $urlRouterProvider, $httpProvider, $authProvider, API_URL)
          {
              $urlRouterProvider.otherwise("/");
 
              $stateProvider
                  .state("inicio",{
                      url:"/",
-                     templateUrl:"app/home.html",
+                     templateUrl:"app/Sistema/home.html"
 
 
                  })
 
                  .state("Login",{
                      url:"/",
-                     templateUrl:"app/Login.html",
+                     templateUrl:"app/Sistema/Login.html",
+                     controller: "LoginCtrl"
 
 
                  })
 
                  .state("Register",{
                      url:"/",
-                     templateUrl:"app/Register.html",
+                     templateUrl:"app/Sistema/Register.html"
 
                  })
 
@@ -46,7 +47,7 @@
 
                  .state("menu", {
                      url:"/Menu/:EmpresaId",
-                     templateUrl: "app/Menu.html"
+                     templateUrl: "app/Sistema/Menu.html"
                  })
 
                  .state("catalogo",{
@@ -73,15 +74,28 @@
                      url:"/Config/:EmpresaId",
                      templateUrl:"app/configuracion/configuracion.html"
 
-                 })
+                 });
 
+             $authProvider.loginUrl = API_URL + "/login";
+             $authProvider.signupUrl = API_URL + "/register";
 
-
-
-
-
+             $httpProvider.interceptors.push("authInterceptor");
 
         }])
+
+
+            .constant("API_URL", "http://localhost:3000")
+
+            .run(function ($window) {
+                var params = $window.location.search.substring(1);
+
+                if (params && $window.opener && $window.opener.location.origin === $window.location.origin) {
+                    var pair = params.split('=');
+                    var code = decodeURIComponent(pair[1]);
+
+                    $window.opener.postMessage(code, $window.location.origin);
+                }
+            });
 
 
     }()
