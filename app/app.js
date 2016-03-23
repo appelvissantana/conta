@@ -14,6 +14,26 @@
              $stateProvider
                  .state("inicio",{
                      url:"/",
+                     templateUrl:"app/home.html",
+
+
+                 })
+
+                 .state("Login",{
+                     url:"/",
+                     templateUrl:"app/Login.html",
+
+
+                 })
+
+                 .state("Register",{
+                     url:"/",
+                     templateUrl:"app/Register.html",
+
+                 })
+
+                 .state("empresas",{
+                     url:"/",
                      templateUrl:"app/empresas/empresas.html",
                      controller:"empresasCtrl as vm"
 
