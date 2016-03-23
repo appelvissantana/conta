@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <title>Conta</title>
 
+
     <link href="css/bootstrap.css" rel="stylesheet"/>
     <link href="css/app.css" rel="stylesheet">
+
 
     <script src="js/jquery-1.12.0.js"></script>
     <script src="js/bootstrap.js"></script>
@@ -24,7 +26,7 @@
 
 </head>
 
-<body ng-app="conta" ng-controller="MainCtrl as vm">
+<body ng-app="conta">
 
 
 <nav class="navbar navbar-default">
@@ -36,7 +38,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand glyphicon glyphicon-home" ui-sref="inicio">Conta</a>
+            <a class="navbar-brand" ui-sref="inicio">Conta</a>
         </div>
 
         <div class="collapse navbar-collapse" id="navMenu">
@@ -58,7 +60,7 @@
 
 
 <div class="container">
-    <div ng-if="vm.isLoggedIn" ui-view>
+    <div ui-view>
 
     </div>
 </div>

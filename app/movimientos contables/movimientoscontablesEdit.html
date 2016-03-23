@@ -1,12 +1,19 @@
 <div class="page-header">
-    <h3>  <a ui-sref="inicio"> Inicio </a> \ <a ui-sref="menu"> Menu </a> \ <a ui-sref="MCLista">Movimientos contables</a> \ Nuevo </h3>
+
+    <ul class="breadcrumb">
+        <li><a ui-sref="inicio"> Inicio </a></li>
+        <li><a ui-sref="menu"> Menu </a></li>
+        <li><a ui-sref="MCLista">Movimientos contables</a></li>
+        <li class="active">Nuevo</li>
+    </ul>
+
+
+
 </div>
 
-<div class="container">
-
 <form class="form-horizontal">
+    <fieldset>
 
-    <div class="container">
     <div class="form-group">
         <label class="col-md-1" for="inputFecha">Fecha</label>
         <div class="col-md-2">
@@ -54,9 +61,8 @@
             <textarea class="form-control" Id="inputConcepto" name="inputConcepto" />
         </div>
     </div>
-    </div>
 
-<div class="container">
+
     <table Id="tbAsiento" class="table table-striped">
         <col style="width:50%">
         <col style="width:20%">
@@ -87,7 +93,7 @@
             <td><input class="form-control" Id="inputCredito" name="inputCredito" type="text" /></td>
             <td>
 
-                <button class="btn btn-primary btn-sm" onclick="AddRow()"><span class="glyphicon glyphicon-plus"></span></button>
+                <button class="btn btn-default btn-sm" onclick="AddRow()"><span class="glyphicon glyphicon-plus"></span></button>
 
             </td>
 
@@ -100,21 +106,20 @@
 
     </table>
 
-</div>
+
 
     <div class="container">
 
-        <button class="btn btn-primary btn-sm" type="submit"><span class="glyphicon glyphicon-plus">Guardar</span></button>
+        <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-plus">Guardar</span></button>
 
-        <a ui-sref="MCLista" class="btn btn-danger btn-sm glyphicon glyphicon-remove" >Cancelar</a>
+        <a ui-sref="MCLista" class="btn btn-default glyphicon glyphicon-remove" >Cancelar</a>
 
 
     </div>
 
+    </fieldset>
 
 </form>
-
-</div>
 
 <script type="text/javascript">
 
@@ -122,7 +127,7 @@
         $('#tbAsiento tr:last').after('<tr><td><input class="form-control" Id="inputCuenta" name="inputCuenta" type="text" /></td>' +
                 '<td><input class="form-control" Id="inputDebito" name="inputDebito" type="text" /></td>' +
                 '<td><input class="form-control" Id="inputCredito" name="inputCredito" type="text" /></td>'
-    +'<td><button class="btn btn-primary btn-sm" onclick="AddRow()"><span class="glyphicon glyphicon-plus"></span></button> <button class="btn btn-danger btn-sm" Id="btnDelete"><span class="glyphicon glyphicon-minus"></span></button></td></tr>'
+    +'<td><button class="btn btn-default btn-sm" onclick="AddRow()"><span class="glyphicon glyphicon-plus"></span></button> <button class="btn btn-default btn-sm" Id="btnDelete"><span class="glyphicon glyphicon-minus"></span></button></td></tr>'
 
         )
     };
