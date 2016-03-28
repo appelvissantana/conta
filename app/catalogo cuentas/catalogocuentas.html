@@ -1,3 +1,6 @@
-<div class="page-header">
-    <h3>  <a ui-sref="inicio"> Inicio </a> \ <a ui-sref="menu"> Menu </a> \ Catalogo de cuentas </h3>
-</div>
+
+    <ul class="breadcrumb">
+        <li><a ui-sref="empresas"> Inicio </a></li>
+        <li><a ui-sref="menu"> {{vm.EmpresaNombre}} </a></li>
+        <li class="active">Catalogo de Cuentas</li>
+    </ul>

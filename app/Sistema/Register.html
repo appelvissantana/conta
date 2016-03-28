@@ -1,9 +1,38 @@
-<form class="form-signin">
+<form class="form-signin" name="registerForm" novalidate>
+    <h1 class="form-signin-heading text-muted">Registraté</h1>
 
-    <input type="text" class="form-control" placeholder="Correo electrónico" required="" autofocus="">
-    <input type="password" class="form-control" placeholder="Contraseña" required="">
-    <input type="password" class="form-control" placeholder="Confirmar contraseña" required="">
-    <button class="btn btn-lg btn-primary btn-block" type="submit">
-        Registrarse
-    </button>
+   <div class="form-group" ng-class="{'has-error':registerForm.email.$invalid && registerForm.email.$dirty }">
+        <input id="email" name="email"  type="email" ng-model="vm.userData.email" class="form-control" placeholder="Correo electrónico" required>
+       <span class="help-block has-error" ng-show="registerForm.email.$invalid && registerForm.email.$dirty">
+           Correo electrónico es requerido.
+       </span>
+   </div>
+
+    <div class="form-group" ng-class="{'has-error':registerForm.password.$invalid && registerForm.password.$dirty}">
+       <input id="password" name="password" type="password" ng-model="vm.userData.password" class="form-control" placeholder="Contraseña" required ng-minlength="6" ng-maxlength="20">
+        <span class="help-block has-error" ng-show="registerForm.password.$invalid && registerForm.password.$dirty">
+            <span ng-show="registerForm.password.$error.required">
+           Contraseña es requerida.
+            </span>
+            <span ng-show="registerForm.password.$error.minlength">
+           Contraseña debe ser minimo 6 carácteres.
+            </span>
+             <span ng-show="registerForm.password.$error.maxlength">
+           Contraseña no puede ser maximo 20 carácteres.
+            </span>
+
+       </span>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error':registerForm.confirmpassword.$invalid && registerForm.confirmpassword.$dirty}">
+        <input id="confirmpassword" name="confirmpassword" type="password" ng-model="vm.userData.confirmPassword" class="form-control" placeholder="Confirmar contraseña" validate-equals="vm.userData.password">
+        <span class="help-block has-error" ng-show="registerForm.confirmpassword.$invalid && registerForm.confirmpassword.$dirty">
+           Las contraseñas no conciden.
+       </span>
+
+    </div>
+
+    <br/>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" ng-disabled="registerForm.$invalid" ng-click="vm.registerUser()">Registraté</button>
+
 </form>

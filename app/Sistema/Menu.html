@@ -1,12 +1,13 @@
 
-<div class="page-header">
+<div class="container">
 
-    <h3> <a ui-sref="inicio"> Inicio </a> \ Menu </h3>
+<ul class="breadcrumb">
+    <li ><a ui-sref="empresas">Inicio</a> </li>
+    <li class="active">{{vm.EmpresaNombre}}</li>
+</ul>
 
-</div>
 
-
-<ul id="ulMenu">
+    <ul id="ulMenu">
 
     <li>
 
@@ -39,3 +40,5 @@
 
 
 </ul>
+
+</div>

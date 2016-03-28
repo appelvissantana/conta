@@ -1,9 +1,10 @@
-<form ng-submit="submit()" class="form-signin">
+<form class="form-signin" >
 
-    <input type="text" class="form-control" placeholder="Correo electrónico" required="" autofocus="">
-    <input type="password" class="form-control" placeholder="Contraseña" required="">
-    <button class="btn btn-lg btn-primary btn-block" type="submit">
-        Acceder
-    </button>
+    <h1 class="form-signin-heading text-muted">Iniciar sesión</h1>
+
+    <input name="email"  type="email" class="form-control" placeholder="Correo electrónico" required>
+    <input name="password" type="password" class="form-control" placeholder="Contraseña" required>
+    <br/>
+    <button class="btn btn-lg btn-primary btn-block" ng-click="vm.submit()">Iniciar sesión</button>
+
 </form>
-

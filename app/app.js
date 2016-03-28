@@ -5,9 +5,9 @@
 (function(){
 
         "use strict";
-        var app = angular.module("conta",["ui.router", "ngAnimate", "satellizer" ]);
+        var app = angular.module("conta",["ui.router","common.services"]);
 
-        app.config(["$stateProvider", "$urlRouterProvider","$httpProvider", "$authProvider", "API_URL", function ($stateProvider, $urlRouterProvider, $httpProvider, $authProvider, API_URL)
+        app.config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $urlRouterProvider)
          {
              $urlRouterProvider.otherwise("/");
 
@@ -15,29 +15,25 @@
                  .state("inicio",{
                      url:"/",
                      templateUrl:"app/Sistema/home.html"
-
-
                  })
 
                  .state("Login",{
-                     url:"/",
+                     url:"/Login",
                      templateUrl:"app/Sistema/Login.html",
-                     controller: "LoginCtrl"
-
-
+                     controller: "loginctrl as vm"
                  })
 
                  .state("Register",{
-                     url:"/",
-                     templateUrl:"app/Sistema/Register.html"
+                     url:"/Register",
+                     templateUrl:"app/Sistema/Register.html",
+                     controller: "MainCtrl as vm"
 
                  })
 
                  .state("empresas",{
-                     url:"/",
+                     url:"/empresas",
                      templateUrl:"app/empresas/empresas.html",
                      controller:"empresasCtrl as vm"
-
                  })
 
                  .state("empresaNueva",{
@@ -47,55 +43,47 @@
 
                  .state("menu", {
                      url:"/Menu/:EmpresaId",
-                     templateUrl: "app/Sistema/Menu.html"
+                     templateUrl: "app/Sistema/Menu.html",
+                     controller: "menuctrl as vm"
+
                  })
 
                  .state("catalogo",{
                      url:"/Catalogo/:EmpresaId",
-                     templateUrl:"app/catalogo cuentas/catalogocuentas.html"
+                     templateUrl:"app/catalogo cuentas/catalogocuentas.html",
+                     controller: "catalogocuentasctrl as vm"
+
                  })
 
                  .state("MCLista",{
                      url:"/MC/Lista",
-                     templateUrl:"app/movimientos contables/movimientoscontables.html"
+                     templateUrl:"app/movimientos contables/movimientoscontables.html",
+                     controller:"movimientoscontablesctrl as vm"
                  })
 
                  .state("MCEdit",{
                  url:"/MC/Nuevo",
-                     templateUrl:"app/movimientos contables/movimientoscontablesEdit.html"
+                     templateUrl:"app/movimientos contables/movimientoscontablesEdit.html",
+                     controller:"movimientoscontableseditctrl as vm"
                 })
 
                  .state("reportes",{
                      url:"/Reportes/:EmpresaId",
-                     templateUrl:"app/reportes/reportes.html"
+                     templateUrl:"app/reportes/reportes.html",
+                     controller: "reportesctrl as vm"
                  })
 
                  .state("config", {
                      url:"/Config/:EmpresaId",
-                     templateUrl:"app/configuracion/configuracion.html"
+                     templateUrl:"app/configuracion/configuracion.html",
+                     controller: "configuracionctrl as vm"
+
 
                  });
 
-             $authProvider.loginUrl = API_URL + "/login";
-             $authProvider.signupUrl = API_URL + "/register";
-
-             $httpProvider.interceptors.push("authInterceptor");
-
+             
         }])
 
-
-            .constant("API_URL", "http://localhost:3000")
-
-            .run(function ($window) {
-                var params = $window.location.search.substring(1);
-
-                if (params && $window.opener && $window.opener.location.origin === $window.location.origin) {
-                    var pair = params.split('=');
-                    var code = decodeURIComponent(pair[1]);
-
-                    $window.opener.postMessage(code, $window.location.origin);
-                }
-            });
 
 
     }()
