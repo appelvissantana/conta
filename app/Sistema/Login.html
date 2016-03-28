@@ -1,10 +1,20 @@
-<form class="form-signin" >
+<form class="form-signin" name="loginForm" novalidate>
 
     <h1 class="form-signin-heading text-muted">Iniciar sesión</h1>
 
-    <input name="email"  type="email" class="form-control" placeholder="Correo electrónico" required>
-    <input name="password" type="password" class="form-control" placeholder="Contraseña" required>
+    <div class="form-group" ng-class="{'has-error':loginForm.email.$invalid && loginForm.email.$dirty }">
+    <input id="email" name="email"  type="email" ng-model="vm.userData.email" class="form-control" placeholder="Correo electrónico" required>
+         <span class="help-block has-error" ng-show="loginForm.email.$invalid && loginForm.email.$dirty">
+           Correo electrónico es requerido.
+       </span>
+
+    </div>
+
+    <div class="form-group" >
+         <input name="password" type="password" ng-model="vm.userData.password" class="form-control" placeholder="Contraseña" required>
+    </div>
+
     <br/>
-    <button class="btn btn-lg btn-primary btn-block" ng-click="vm.submit()">Iniciar sesión</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" ng-disabled="loginForm.$invalid">Iniciar sesión</button>
 
 </form>

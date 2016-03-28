@@ -20,7 +20,7 @@
                  .state("Login",{
                      url:"/Login",
                      templateUrl:"app/Sistema/Login.html",
-                     controller: "loginctrl as vm"
+                     controller: "MainCtrl as vm"
                  })
 
                  .state("Register",{
